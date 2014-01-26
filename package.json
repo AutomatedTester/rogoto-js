@@ -16,7 +16,7 @@
     "robot"
   ],
   "dependencies": {
-    "mocha": "0.17.1"
+    "mocha": "1.17.1"
   },
   "author": "David Burns",
   "license": "Apache 2",
