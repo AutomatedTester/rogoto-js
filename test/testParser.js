@@ -8,10 +8,24 @@ describe('RogotoParser', function  () {
       try {
         parser.parse();
       } catch (e) {
-        passed = 1;
+        if (e.name == 'RogotoParserException' && e.message == 'You need to pass in a string of code') {
+            passed = 1;
+        }
         // If we get here we have passed
       }
       assert.equal(passed, 1, 'Parse should have thrown an error');
-    })
+    });
+
+    it('should return a "syntax" error if it doesnt understand a command', function  () {
+      var passed = 0;
+      try {
+        parser.parse('blahblahh');
+      } catch (e) {
+        if (e.name == 'RogotoParserException' && e.message == 'You need to pass in valid syntax') {
+          passed = 1;
+        }
+      }
+      assert.equal(passed, 1, 'Parse should have thrown a "syntax" error');
+    });
   })
 })
