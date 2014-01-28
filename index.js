@@ -4,6 +4,7 @@ function RogotoParserException (message) {
 }
 
 function RogotoParser () {
+    this.codeToExecute = [];
 }
 
 RogotoParser.prototype.parse = function(logoCode) {
@@ -16,6 +17,8 @@ RogotoParser.prototype.parse = function(logoCode) {
     if (!match) {
       throw new RogotoParserException("You need to pass in valid syntax");
     }
+    this.codeToExecute.push(match[0]);
+    return this.codeToExecute;
 };
 
 module.exports = new RogotoParser();

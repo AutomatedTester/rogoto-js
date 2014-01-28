@@ -27,5 +27,10 @@ describe('RogotoParser', function  () {
       }
       assert.equal(passed, 1, 'Parse should have thrown a "syntax" error');
     });
+
+    it('should parse a "pendown" command', function  () {
+        var result = parser.parse('pendown');
+        assert.equal(result, 'pendown', 'Parse should return an array with pendown but got ' + result);
+    })
   })
 })
