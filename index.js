@@ -12,12 +12,17 @@ RogotoParser.prototype.parse = function(logoCode) {
         throw new RogotoParserException("You need to pass in a string of code");
     }
 
-    var codeRegex = /pendown/;
+    var codeRegex = /pendown|pd/;
     var match = codeRegex.exec(logoCode);
     if (!match) {
       throw new RogotoParserException("You need to pass in valid syntax");
     }
-    this.codeToExecute.push(match[0]);
+    switch (match[0]) {
+      case 'pendown':
+      case 'pd':
+        this.codeToExecute.push(match[0]);
+        break;
+    }
     return this.codeToExecute;
 };
 
