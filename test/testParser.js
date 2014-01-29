@@ -1,9 +1,10 @@
 var assert = require('assert')
-  , parser = require('../index.js');
+  , RogotoParser = require('../index.js');
 
 describe('RogotoParser', function  () {
   describe('#parse', function  () {
     it('should parse a string and error if no string passed in', function  () {
+      var parser = new RogotoParser();
       var passed = 0;
       try {
         parser.parse();
@@ -17,6 +18,7 @@ describe('RogotoParser', function  () {
     });
 
     it('should return a "syntax" error if it doesnt understand a command', function  () {
+      var parser = new RogotoParser();
       var passed = 0;
       try {
         parser.parse('blahblahh');
@@ -29,13 +31,15 @@ describe('RogotoParser', function  () {
     });
 
     it('should parse a "pendown" command', function  () {
+        var parser = new RogotoParser();
         var result = parser.parse('pendown');
         assert.equal(result, 'pendown', 'Parse should return an array with pendown but got ' + result);
     })
 
     it('should parse a "pd" command as pendown and return "pendown"', function  () {
+        var parser = new RogotoParser();
         var result = parser.parse('pd');
-        assert.equal(result, 'pendown,pd', 'Parse should return an array with pendown but got ' + result);
+        assert.equal(result, 'pd', 'Parse should return an array with pendown but got ' + result);
     })
   })
 })

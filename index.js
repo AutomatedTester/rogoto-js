@@ -26,4 +26,4 @@ RogotoParser.prototype.parse = function(logoCode) {
     return this.codeToExecute;
 };
 
-module.exports = new RogotoParser();
+module.exports = RogotoParser;
