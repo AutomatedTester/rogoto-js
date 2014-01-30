@@ -77,5 +77,17 @@ describe('RogotoParser', function  () {
       var result = parser.parse('bk 11');
       assert.equal(result, 'back 11', 'Parse should return an array with back 11 but got ' + result);
     });
+
+    it('should parse a "right 45" command as back and return "right 45"', function  () {
+      var parser = new RogotoParser();
+      var result = parser.parse('right 45');
+      assert.equal(result, 'right 45', 'Parse should return an array with right 45 but got ' + result);
+    });
+
+    it('should parse a "rt 45" command as back and return "right 45"', function  () {
+      var parser = new RogotoParser();
+      var result = parser.parse('rt 45');
+      assert.equal(result, 'right 45', 'Parse should return an array with right 45 but got ' + result);
+    });
   });
 });
