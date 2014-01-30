@@ -53,5 +53,17 @@ describe('RogotoParser', function  () {
       var result = parser.parse('pu');
       assert.equal(result, 'penup', 'Parse should return an array with penup but got ' + result);
     });
+
+    it('should parse a "forward 10" command as forward and return "forward 10"', function  () {
+      var parser = new RogotoParser();
+      var result = parser.parse('forward 10');
+      assert.equal(result, 'forward 10', 'Parse should return an array with forward 10 but got ' + result);
+    });
+
+    it('should parse a "fd 11" command as forward 11 and return "forward 11"', function  () {
+      var parser = new RogotoParser();
+      var result = parser.parse('fd 11');
+      assert.equal(result, 'forward 11', 'Parse should return an array with forward 11 but got ' + result);
+    });
   });
 });
