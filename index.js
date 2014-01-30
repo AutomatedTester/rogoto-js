@@ -12,7 +12,7 @@ RogotoParser.prototype.parse = function(logoCode) {
         throw new RogotoParserException("You need to pass in a string of code");
     }
 
-    var codeRegex = /pendown|pd|penup|pu|forward \d+|fd \d+/;
+    var codeRegex = /pendown|pd|penup|pu|forward \d+|fd \d+|back \d+|bk \d+/;
     var match = codeRegex.exec(logoCode);
     if (!match) {
       throw new RogotoParserException("You need to pass in valid syntax");
@@ -30,6 +30,11 @@ RogotoParser.prototype.parse = function(logoCode) {
       case 'forward':
       case 'fd':
         var command = match[0].split(' ')[0] == 'forward'? match[0] : 'forward ' + cmd[1];
+        this.codeToExecute.push(command);
+        break;
+      case 'back':
+      case 'bk':
+        var command = match[0].split(' ')[0] == 'back'? match[0] : 'back ' + cmd[1];
         this.codeToExecute.push(command);
         break;
     }
