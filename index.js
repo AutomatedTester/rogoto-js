@@ -51,4 +51,8 @@ RogotoParser.prototype.parse = function(logoCode) {
     return this.codeToExecute;
 };
 
+RogotoParser.prototype.clean = function() {
+    this.codeToExecute = [];
+};
+
 module.exports = RogotoParser;

@@ -102,4 +102,13 @@ describe('RogotoParser', function  () {
       assert.equal(result, 'left 45', 'Parse should return an array with left 45 but got ' + result);
     });
   });
+
+  describe("#clean", function () {
+    it("should allow us to clear the current code", function () {
+      var parser = new RogotoParser();
+      parser.parse('lt 45');
+      parser.clean();
+      assert.equal(parser.codeToExecute, '', 'codeToExecute should have nothing in it but has ' + parser.codeToExecute);
+    });
+  });
 });
