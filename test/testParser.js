@@ -39,7 +39,7 @@ describe('RogotoParser', function  () {
     it('should parse a "pd" command as pendown and return "pendown"', function  () {
         var parser = new RogotoParser();
         var result = parser.parse('pd');
-        assert.equal(result, 'pd', 'Parse should return an array with pendown but got ' + result);
+        assert.equal(result, 'pendown', 'Parse should return an array with pendown but got ' + result);
     })
 
     it('should parse a "penup" command', function  () {
@@ -51,7 +51,7 @@ describe('RogotoParser', function  () {
     it('should parse a "pu" command as penup and return "penup"', function  () {
       var parser = new RogotoParser();
       var result = parser.parse('pu');
-      assert.equal(result, 'pu', 'Parse should return an array with penup but got ' + result);
+      assert.equal(result, 'penup', 'Parse should return an array with penup but got ' + result);
     })
   })
 })

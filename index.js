@@ -20,11 +20,11 @@ RogotoParser.prototype.parse = function(logoCode) {
     switch (match[0]) {
       case 'pendown':
       case 'pd':
-        this.codeToExecute.push(match[0]);
+        this.codeToExecute.push('pendown');
         break;
       case 'penup':
       case 'pu':
-        this.codeToExecute.push(match[0]);
+        this.codeToExecute.push('penup');
         break;
     }
     return this.codeToExecute;
