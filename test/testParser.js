@@ -31,27 +31,27 @@ describe('RogotoParser', function  () {
     });
 
     it('should parse a "pendown" command', function  () {
-        var parser = new RogotoParser();
-        var result = parser.parse('pendown');
-        assert.equal(result, 'pendown', 'Parse should return an array with pendown but got ' + result);
-    })
+      var parser = new RogotoParser();
+      var result = parser.parse('pendown');
+      assert.equal(result, 'pendown', 'Parse should return an array with pendown but got ' + result);
+    });
 
     it('should parse a "pd" command as pendown and return "pendown"', function  () {
-        var parser = new RogotoParser();
-        var result = parser.parse('pd');
-        assert.equal(result, 'pendown', 'Parse should return an array with pendown but got ' + result);
-    })
+      var parser = new RogotoParser();
+      var result = parser.parse('pd');
+      assert.equal(result, 'pendown', 'Parse should return an array with pendown but got ' + result);
+    });
 
     it('should parse a "penup" command', function  () {
       var parser = new RogotoParser();
       var result = parser.parse('penup');
       assert.equal(result, 'penup', 'Parse should return an array with penup but got ' + result);
-    })
+    });
 
     it('should parse a "pu" command as penup and return "penup"', function  () {
       var parser = new RogotoParser();
       var result = parser.parse('pu');
       assert.equal(result, 'penup', 'Parse should return an array with penup but got ' + result);
-    })
-  })
-})
+    });
+  });
+});
