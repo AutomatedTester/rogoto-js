@@ -89,5 +89,17 @@ describe('RogotoParser', function  () {
       var result = parser.parse('rt 45');
       assert.equal(result, 'right 45', 'Parse should return an array with right 45 but got ' + result);
     });
+
+    it('should parse a "left 45" command as back and return "left 45"', function  () {
+      var parser = new RogotoParser();
+      var result = parser.parse('left 45');
+      assert.equal(result, 'left 45', 'Parse should return an array with left 45 but got ' + result);
+    });
+
+    it('should parse a "lt 45" command as back and return "left 45"', function  () {
+      var parser = new RogotoParser();
+      var result = parser.parse('lt 45');
+      assert.equal(result, 'left 45', 'Parse should return an array with left 45 but got ' + result);
+    });
   });
 });
