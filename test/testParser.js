@@ -101,6 +101,15 @@ describe('RogotoParser', function  () {
       var result = parser.parse('lt 45');
       assert.equal(result, 'left 45', 'Parse should return an array with left 45 but got ' + result);
     });
+
+    it('should keep the state of the pen', function () {
+      var parser = new RogotoParser();
+      assert.equal(parser.penState, 'up', 'Pen state should be up');
+      parser.parse('pendown');
+      assert.equal(parser.penState, 'down', 'Pen state should be down');
+      parser.parse('penup');
+      assert.equal(parser.penState, 'up', 'Pen state should be up');
+    })
   });
 
   describe("#clean", function () {

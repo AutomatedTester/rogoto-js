@@ -5,6 +5,7 @@ function RogotoParserException (message) {
 
 function RogotoParser () {
     this.codeToExecute = [];
+    this.penState = 'up';
 }
 
 RogotoParser.prototype.parse = function(logoCode) {
@@ -22,10 +23,12 @@ RogotoParser.prototype.parse = function(logoCode) {
       case 'pendown':
       case 'pd':
         this.codeToExecute.push('pendown');
+        this.penState = 'down';
         break;
       case 'penup':
       case 'pu':
         this.codeToExecute.push('penup');
+        this.penState = 'up';
         break;
       case 'forward':
       case 'fd':
