@@ -109,6 +109,12 @@ describe('RogotoParser', function  () {
       assert.equal(parser.penState, 'down', 'Pen state should be down');
       parser.parse('penup');
       assert.equal(parser.penState, 'up', 'Pen state should be up');
+    });
+
+    it('should parse multiline code and return an array', function () {
+      var parser = new RogotoParser();
+      var result = parser.parse('pd\nforward 10\nlt 45\nforward 20\npu')
+      assert.deepEqual(result, ['pendown', 'forward 10', 'left 45', 'forward 20', 'penup'])
     })
   });
 
