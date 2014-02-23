@@ -3,6 +3,15 @@ var assert = require('assert')
 
 describe('RogotoParser', function  () {
   describe('#parse', function  () {
+    it('should clear the parser array everytime it is called', function () {
+      var parser = new RogotoParser();
+      var result = parser.parse('pendown');
+      assert.deepEqual(result, ['pendown']);
+      result = [];
+      result = parser.parse('penup\nforward 10');
+      assert.deepEqual(result, ['penup', 'forward 10']);
+    });
+
     it('should parse a string and error if no string passed in', function  () {
       var parser = new RogotoParser();
       var passed = 0;

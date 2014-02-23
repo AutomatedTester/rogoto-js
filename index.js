@@ -9,6 +9,7 @@ function RogotoParser () {
 }
 
 RogotoParser.prototype.parse = function(logoCode) {
+    this.codeToExecute = [];
     if (!logoCode) {
         throw new RogotoParserException("You need to pass in a string of code");
     }
